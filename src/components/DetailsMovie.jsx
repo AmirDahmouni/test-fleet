@@ -21,7 +21,7 @@ export default function DetailsMovie()
       <div>
         <CardImg
           alt="Card image cap"
-          src={`https://image.tmdb.org/t/p/original/${context.SelectedMovie.poster_path}`}
+          src={`${process.env.REACT_APP_BASE_PATH}/${context.SelectedMovie.poster_path}`}
           style={{width:"40%",margin:"5px 30px",borderRadius:"10px",height:"400px"}}
         />
         <h2 className="text-truncate font-size-14 mb-1" style={{display:"inline", fontSize:"20px" }}>{context.SelectedMovie.title}</h2>
@@ -31,14 +31,13 @@ export default function DetailsMovie()
     <CardBody style={{margin:"10px"}}>
     <ReactStars count={context.SelectedMovie.vote_average} color="#ffd700" size={24} />
     <CardTitle tag="h5" style={{display:"inline"}}>
-        ( {context.SelectedMovie.vote_count} votes)
+        ( {context.SelectedMovie.vote_count} reviews)
       </CardTitle>
       <CardTitle tag="h5">
         {context.SelectedMovie.original_title}
       </CardTitle>
       <CardSubtitle className="mb-2 text-muted" tag="h6">
         <i className="mdi mdi-monitor-eye">views : {context.SelectedMovie.popularity}</i>
-       
       </CardSubtitle>
       <CardSubtitle className="mb-2 text-muted" tag="h6">
         Language : {context.SelectedMovie.original_language.toUpperCase()}
@@ -47,12 +46,20 @@ export default function DetailsMovie()
         Released : {context.SelectedMovie.release_date}
       </CardSubtitle>
       <CardSubtitle className="mb-2 text-muted" tag="h6">
-        {context.SelectedMovie.adult ? true : false}
+        Adult : {context.SelectedMovie.adult ? "true" : "false"}
       </CardSubtitle>
       <CardText>
         {context.SelectedMovie.overview}
       </CardText>
     </CardBody>
-  </Card>) : <p>no movie selected </p>
+  </Card>) : 
+      <Card style={{margin:"15px"}}>
+        <h2 className="text-truncate font-size-14 mb-1" style={{fontSize:"50px",margin:"100px" }}>choose you Movie NOW !</h2>
+        <CardImg
+          alt="Card image cap"
+          src="./welcome.png"
+          style={{width:"80%",margin:"100px",borderRadius:"10px",height:"400px"}}
+        />
+        </Card>
     );
 }
