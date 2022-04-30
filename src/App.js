@@ -1,24 +1,27 @@
-import logo from './logo.svg';
 import './App.css';
+import SearchBar from './components/SearchBar';
+import ListMovies from './components/ListMovies';
+import DetailsMovie from './components/DetailsMovie';
+import AppContext from './AppContext';
 
-function App() {
+function App(props) {
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <AppContext>
+       <div class="container">
+          <div class="row">
+            <div class="col-sm-4">
+               <SearchBar/>
+               <ListMovies/>
+            </div>
+            <div class="col-sm-8">
+               <DetailsMovie/>
+            </div>
+          </div>
+        </div>
+    </AppContext>
+ 
   );
 }
 
