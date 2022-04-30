@@ -1,7 +1,14 @@
+import React,{useContext} from "react"
+import GlobalContext from "../GlobalContext"
 import {Input} from "reactstrap"
 
 export default function SearchBar()
 {
+  const context = useContext(GlobalContext)
+
+  const searchMovie=(name)=>{
+    
+  }
 
 
     return (
@@ -11,6 +18,7 @@ export default function SearchBar()
             type="text"
             className="form-control"
             placeholder="Search..."
+            onChange={(e)=>searchMovie(e.target.value)}
           />
           <i class="bx bx-search-alt"></i>
         </div>

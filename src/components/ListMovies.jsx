@@ -33,7 +33,7 @@ export default function ListMovies ()
       listMovies &&
         <TabPane>
         <div>
-          <h5 className="font-size-14 mb-3">Recent {listMovies.length-1}</h5>
+          <h5 className="font-size-14 mb-3">Recent {listMovies.length-1} found</h5>
           <ul className="list-unstyled chat-list">
             <PerfectScrollbar >
               {listMovies.map(movie => (
