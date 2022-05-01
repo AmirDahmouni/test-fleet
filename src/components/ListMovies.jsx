@@ -1,7 +1,8 @@
 import React, { useState, useEffect,useContext } from 'react';
 import { Link } from "react-router-dom"
-import {TabPane,Media} from "reactstrap"
+import {TabPane,Media,TabContent} from "reactstrap"
 import PerfectScrollbar from "react-perfect-scrollbar"
+import "react-perfect-scrollbar/dist/css/styles.css"
 import ReactStars from "react-rating-stars-component";
 import GlobalContext from "../GlobalContext"
 
@@ -35,11 +36,12 @@ export default function ListMovies ()
      window.scrollTo({top: 0, behavior: 'smooth'});
    }
     return (
+      <TabContent className="py-4" >
         <TabPane>
         <div>
           <h5 className="font-size-14 mb-3">Recent {listMovies.length-1} found</h5>
           <ul className="list-unstyled chat-list">
-            <PerfectScrollbar >
+            <PerfectScrollbar style={{ height: "550px"}} >
               {listMovies.map(movie => (
                 <li
                 onClick={() =>movieDetailsOpen(movie.id)}
@@ -50,7 +52,7 @@ export default function ListMovies ()
                     <Media>
                       <div className="align-self-center me-3">
                         <img
-                        style ={{width:"70px",height:"70px"}}
+                        style ={{width:"60px",height:"60px"}}
                           src={`${process.env.REACT_APP_BASE_PATH}/${movie.backdrop_path}`}
                           className="rounded-circle avatar-xs"
                         />
@@ -76,5 +78,6 @@ export default function ListMovies ()
           </ul>
         </div>
       </TabPane>
+      </TabContent>
     )
 }

@@ -16,13 +16,13 @@ export default function DetailsMovie()
     return(
       context.SelectedMovie ?
    (
-    <Card style={{margin:"15px"}}>
+    <Card style={{margin:"5px"}}>
      <h2 className="text-truncate font-size-14 mb-1" style={{margin:"30px"}}>Details Movie</h2>
       <div>
         <CardImg
           alt="Card image cap"
           src={`${process.env.REACT_APP_BASE_PATH}/${context.SelectedMovie.poster_path}`}
-          style={{width:"40%",margin:"5px 30px",borderRadius:"10px",height:"400px"}}
+          style={{width:"40%",margin:"5px 30px",borderRadius:"5px",height:"350px"}}
         />
         <h2 className="text-truncate font-size-14 mb-1" style={{display:"inline", fontSize:"20px" }}>{context.SelectedMovie.title}</h2>
         
@@ -54,7 +54,7 @@ export default function DetailsMovie()
     </CardBody>
   </Card>) : 
       <Card style={{margin:"15px"}}>
-        <h2 className="text-truncate font-size-14 mb-1" style={{fontSize:"50px",margin:"100px" }}>choose you Movie NOW !</h2>
+        <h2 className="text-truncate font-size-14 mb-1" style={{fontSize:"50px",margin:"100px" }}>Choose Your Movie NOW !</h2>
         <CardImg
           alt="Card image cap"
           src="./welcome.png"
