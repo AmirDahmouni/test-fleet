@@ -9,6 +9,4 @@ You need first to install all packages
 ### `npm start`
 Start your app on browser automatically
 
-### Deployment
-This app deployed on Heroku
 
