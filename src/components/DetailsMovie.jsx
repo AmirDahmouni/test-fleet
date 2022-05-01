@@ -8,7 +8,7 @@ import {
 } from "reactstrap"
 import React,{useContext} from "react"
 import GlobalContext from "../GlobalContext"
-import ReactStars from "react-rating-stars-component";
+import Rating from '@mui/material/Rating';
 
 export default function DetailsMovie()
 {
@@ -29,7 +29,7 @@ export default function DetailsMovie()
       </div>
      
     <CardBody style={{margin:"10px"}}>
-    <ReactStars count={context.SelectedMovie.vote_average} color="#ffd700" size={24} />
+    <Rating name="read-only" value={context.SelectedMovie.vote_average/2} readOnly />
     <CardTitle tag="h5" style={{display:"inline"}}>
         ( {context.SelectedMovie.vote_count} reviews)
       </CardTitle>

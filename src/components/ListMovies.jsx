@@ -23,7 +23,6 @@ export default function ListMovies ()
       setListMovies(response.data.results.sort((a,b)=>new Date(b.release_date) - new Date(a.release_date)))
     })
     .catch(err=>console.log(err.message))
-    
    },[])
 
    useEffect(()=>{
@@ -33,7 +32,6 @@ export default function ListMovies ()
    
    const movieDetailsOpen=(id)=>{
      context.setSelectedMovie(listMovies.find(movie=>movie.id==id))
-     window.scrollTo({top: 0, behavior: 'smooth'});
    }
     return (
       <TabContent className="py-4" >

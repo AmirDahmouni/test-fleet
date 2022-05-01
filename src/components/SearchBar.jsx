@@ -8,11 +8,21 @@ export default function SearchBar()
   const context = useContext(GlobalContext)
 
   const searchMovie=(name)=>{
-    axios.get(`${process.env.REACT_APP_BASE_URL}/search/movie?api_key=${process.env.REACT_APP_API_KEY}&language=en-US&query=${name}&page=1&include_adult=false`)
+    if(name.length!=0)
+    {
+      axios.get(`${process.env.REACT_APP_BASE_URL}/search/movie?api_key=${process.env.REACT_APP_API_KEY}&language=en-US&query=${name}&page=1&include_adult=false`)
+      .then(response=>{
+      context.setMovies(response.data.results)
+      })
+      .catch(err=>console.log(err.message))
+    }
+    else {
+      axios.get(`${process.env.REACT_APP_BASE_URL}/movie/popular?api_key=${process.env.REACT_APP_API_KEY}&language=en-US&page=1}`)
     .then(response=>{
       context.setMovies(response.data.results)
     })
     .catch(err=>console.log(err.message))
+    }
   }
 
 
