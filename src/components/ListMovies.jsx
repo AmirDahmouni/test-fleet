@@ -3,7 +3,7 @@ import { Link } from "react-router-dom"
 import {TabPane,Media,TabContent} from "reactstrap"
 import PerfectScrollbar from "react-perfect-scrollbar"
 import "react-perfect-scrollbar/dist/css/styles.css"
-import ReactStars from "react-rating-stars-component";
+import Rating from '@mui/material/Rating';
 import GlobalContext from "../GlobalContext"
 
 import axios from "axios"
@@ -65,7 +65,7 @@ export default function ListMovies ()
                           <i className="mdi mdi-monitor-eye">Released {movie.release_date.substring(0,4)}</i>
                         </div>
                         <p className="text-truncate mb-0">
-                        <ReactStars count={movie.vote_average} color="#ffd700" size={24} />  
+                        <Rating name="read-only" value={movie.vote_average/2} readOnly /> 
                         </p>
                       </Media>
                       <div className="font-size-11">
